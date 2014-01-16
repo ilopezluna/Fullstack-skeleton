@@ -1,0 +1,60 @@
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">Selected Element</div>
+        <div class="panel-body">
+            <h2>{{id}}</h2>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-2 hidden-xs" >
+    <div class="panel panel-default">
+        <div class="panel-heading">Categories</div>
+        <div class="panel-body text-center">
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-default" data-ng-click='categories[$index].open = !categories[$index].open' data-ng-repeat='category in categories'>{{category.name}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">Items</div>
+        <div class="panel-body">
+
+            <accordion close-others='false'>
+                <accordion-group data-ng-repeat='category in categories' id='{{category.id}}' heading='{{category.name}}' is-open='category.open'>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr data-ng-repeat='item in items' data-ng-if='item.category.id == category.id'>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.price}}€</td>
+                                    <td>{{item.category.name}}</td>
+                                    <td class="text-right" >
+                                        <a data-ng-href data-ng-click='addItem($index)'><span class="glyphicon glyphicon-plus"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">Cart</div>
+        <div class="panel-body">
+
+            <!-- Cart -->
+            <div data-ng-controller='CartCtrl'>
+                <div data-ng-include='cart.url'></div>
+            </div>
+
+        </div>
+    </div>
+</div>

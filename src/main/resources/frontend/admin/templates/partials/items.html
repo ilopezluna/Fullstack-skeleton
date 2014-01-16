@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                <th>
+                    #
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Category
+                </th>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat='item in items' data-ng-click='edit(item)'>
+                    <td>
+                        {{item.id}}
+                    </td>
+                    <td>
+                        {{item.name}}
+                    </td>
+                    <td>
+                        {{item.price}}
+                    </td>
+                    <td>
+                        {{item.category.name}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

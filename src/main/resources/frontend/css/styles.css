@@ -1,0 +1,14 @@
+.nav, .pagination, .carousel a { cursor: pointer; } /** see http://angular-ui.github.io/bootstrap/ **/
+
+body {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.list-group li {
+	list-style: none;
+}
+
+.pac-container {
+	z-index: 1053;
+}

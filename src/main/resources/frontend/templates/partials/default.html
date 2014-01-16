@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Search</div>
+    <div class="panel-body">
+        <input type="text" class="form-control" placeholder="Search for name..." data-ng-model='query'>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Order</div>
+    <div class="panel-body text-center">
+        <button type="button" class="btn btn-default" data-ng-click='predicate = "rank"'>Rank</button>
+        <button type="button" class="btn btn-default" data-ng-click='predicate = "price"'>Price</button>
+        <button type="button" class="btn btn-default" data-ng-click='predicate = "demanded"'>Most demanded</button>
+    </div>
+</div>
+
+<div class="row">
+    <ul class="list-group">
+        <li data-ng-repeat='element in elements | filter:query | orderBy:predicate'>
+            <div data-ng-include='item.url'></div>
+        </li>
+    </ul>
+</div>
