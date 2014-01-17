@@ -6,10 +6,8 @@ import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import com.ilopezluna.fullstack.configurations.ApplicationConfiguration;
 import com.ilopezluna.fullstack.configurations.MongoConfiguration;
-import com.ilopezluna.fullstack.services.ElementService;
-import com.ilopezluna.fullstack.services.ElementServiceImpl;
-import com.ilopezluna.fullstack.services.UserService;
-import com.ilopezluna.fullstack.services.UserServiceImpl;
+import com.ilopezluna.fullstack.entities.Element;
+import com.ilopezluna.fullstack.services.*;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.yammer.dropwizard.config.Configuration;
@@ -29,7 +27,6 @@ public class ApplicationModule extends AbstractModule
 	@Override
 	protected void configure()
 	{
-		bind(ElementService.class).to(ElementServiceImpl.class);
 		bind(UserService.class).to(UserServiceImpl.class);
 	}
 
@@ -62,6 +59,13 @@ public class ApplicationModule extends AbstractModule
 //		}
 
 		return new Jongo(db);
+	}
+
+	@Provides
+	@Singleton
+	public GenericDAO<Element> ElementDAO(Jongo jongo)
+	{
+		return new GenericDAO<Element>(jongo, Element.class, "elements");
 	}
 
 
