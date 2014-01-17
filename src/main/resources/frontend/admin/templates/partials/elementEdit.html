@@ -16,6 +16,7 @@
         </form>
 
         <button type="button" class="btn btn-primary" data-ng-click='save()'>Save</button>
-        <button type="button" class="btn btn-danger" data-ng-click='delete()'>Delete</button>
+        <button type="button" class="btn btn-warning" data-ng-click='redirect()'>Cancel</button>
+        <button type="button" class="btn btn-danger" data-ng-click='delete()' data-ng-hide='element.id == null'>Delete</button>
     </div>
 </div>

@@ -34,8 +34,23 @@ application
         else  {
             $scope.element = new Element({});
         }
+        $scope.redirect = function() {
+            $location.path('/elements');
+        }
         $scope.save =  function() {
-            $scope.element.$save();
+            $scope.element.$save(function () {
+                $scope.redirect();
+            });
+        }
+        $scope.delete =  function() {
+            $scope.element.$delete(
+                function () {
+                    $scope.redirect();
+                },
+                function () {
+                    $scope.redirect();
+                }
+            );
         }
     }])
     .controller('ItemListCtrl', ['$scope', 'Item', '$location', function($scope, Item, $location) {

@@ -46,9 +46,16 @@ public class ElementResource
 	}
 
 	@POST
-	public Element update( Element element )
+	public Element save( Element element )
 	{
 		return elementService.saveOrUpdate( element );
+	}
+
+	@POST
+	@Path( PATH_ID )
+	public Element update( Element element )
+	{
+		return save( element );
 	}
 
 	@DELETE

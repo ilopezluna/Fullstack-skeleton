@@ -3,7 +3,7 @@ application
     .factory('Element', function($resource) {
         return $resource(
             base_url + '/element/:id', {
-                id: '@Id'
+                id: '@id'
             }
         )
     });
