@@ -13,6 +13,6 @@ mail:
   password: secret
 
 aws:
-  accessKey: AKIAJ2DJKF5X72RHF5ZQ
-  secretKey: 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
+  accessKey: accesskey
+  secretKey: secretkey
   imagesBucket: com.ilopezluna.restaurant.images
