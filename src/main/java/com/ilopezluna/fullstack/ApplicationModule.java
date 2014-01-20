@@ -7,7 +7,8 @@ import com.google.inject.name.Named;
 import com.ilopezluna.fullstack.configurations.ApplicationConfiguration;
 import com.ilopezluna.fullstack.configurations.MongoConfiguration;
 import com.ilopezluna.fullstack.entities.Element;
-import com.ilopezluna.fullstack.services.*;
+import com.ilopezluna.fullstack.entities.User;
+import com.ilopezluna.fullstack.services.GenericDAO;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.yammer.dropwizard.config.Configuration;
@@ -27,7 +28,7 @@ public class ApplicationModule extends AbstractModule
 	@Override
 	protected void configure()
 	{
-		bind(UserService.class).to(UserServiceImpl.class);
+		//Bind services here
 	}
 
 	@Provides
@@ -63,9 +64,14 @@ public class ApplicationModule extends AbstractModule
 
 	@Provides
 	@Singleton
-	public GenericDAO<Element> ElementDAO(Jongo jongo)
-	{
-		return new GenericDAO<Element>(jongo, Element.class, "elements");
+	public GenericDAO<Element> ElementDAO(Jongo jongo) {
+		return new GenericDAO<Element>( jongo, Element.class, Element.COLLECTION_NAME );
+	}
+
+	@Provides
+	@Singleton
+	public GenericDAO<User> UserDAO(Jongo jongo) {
+		return new GenericDAO<User>( jongo, User.class, User.COLLECTION_NAME );
 	}
 
 
