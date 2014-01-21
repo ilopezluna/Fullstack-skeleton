@@ -1,7 +1,9 @@
 package com.ilopezluna.fullstack.resources;
 
 import com.ilopezluna.fullstack.entities.Basic;
+import com.ilopezluna.fullstack.entities.User;
 import com.ilopezluna.fullstack.services.GenericDAO;
+import com.yammer.dropwizard.auth.Auth;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -43,8 +45,10 @@ public abstract  class AbstractResource  <T extends Basic> {
 	@POST
 	@Path( PATH_ID )
 	@Consumes( MediaType.APPLICATION_JSON )
-	public T update( @PathParam(PATH_ID_PARAM) String id, T basic )
+	public T update( @Auth(required = false) User user, @PathParam(PATH_ID_PARAM) String id, T basic )
 	{
+		if (user == null)
+			System.out.println("User isn't authenticated");
 		return dao.saveOrUpdate( basic );
 	}
 

@@ -23,8 +23,7 @@ public class GenericDAO <T extends Basic> {
 
 	public Collection<T> fetchAll() {
 		Collection<T> result = new HashSet<T>();
-
-		Iterable<T> iterable = collection.find().as( clazz );
+		Iterable<T> iterable = collection.find().as( clazz ); //Why an iterator?
 		for (T basic : iterable)
 		{
 			result.add( basic );
