@@ -1,9 +1,9 @@
 mongo:
-  uri: ds031349.mongolab.com
-  port: 31349
-  database: heroku_app22294048
-  username: heroku_app22294048
-  password: ASuhdjhja/("72873
+  uri: troup.mongohq.com
+  port: 10040
+  database: app22294726
+  username: japanathome
+  password: asldhSFD324=)2
 
 http:
   rootPath: /api/*  # Default is /*
@@ -13,6 +13,6 @@ mail:
   password: secret
 
 aws:
-  accessKey: AKIAJ2DJKF5X72RHF5ZQ
-  secretKey: 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
-  imagesBucket: com.ilopezluna.restaurant.images
+  accessKey: key
+  secretKey: secret
+  imagesBucket: com.ilopezluna.japanathome.restaurant.images
