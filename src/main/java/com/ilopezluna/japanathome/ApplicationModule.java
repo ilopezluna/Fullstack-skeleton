@@ -59,10 +59,10 @@ public class ApplicationModule extends AbstractModule
 		}
 
 		DB db = mongoClient.getDB( mongoConfiguration.getDatabase() );
-//		if ( !db.authenticate(mongoConfiguration.getUsername(), mongoConfiguration.getPassword().toCharArray()) )
-//		{
-//			throw new RuntimeException("Authentication error!");
-//		}
+		if ( !db.authenticate(mongoConfiguration.getUsername(), mongoConfiguration.getPassword().toCharArray()) )
+		{
+			throw new RuntimeException("Authentication error!");
+		}
 
 		return new Jongo(db);
 	}
