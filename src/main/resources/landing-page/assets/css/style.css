@@ -349,6 +349,18 @@ label {
 	}
 }
 
+@media only screen and (max-width: 640px){
+	#parallax {
+		height: 680px;
+		width: 100%;
+		top: 0;
+		position: fixed;
+		background-size: cover;
+		z-index: -100;
+		background-color:orange;
+	}
+}
+
 /*	Navbar
 	==================================================*/
 .navbar-inverse .navbar-brand {
