@@ -3,6 +3,7 @@ package com.ilopezluna.japanathome;
 import com.hubspot.dropwizard.guice.GuiceBundle;
 import com.ilopezluna.japanathome.configurations.ApplicationConfiguration;
 import com.yammer.dropwizard.Service;
+import com.yammer.dropwizard.assets.AssetsBundle;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 
@@ -17,10 +18,11 @@ public class ApplicationService extends Service<ApplicationConfiguration>
 	public void initialize(Bootstrap<ApplicationConfiguration> bootstrap)
 	{
 		bootstrap.setName("Japan At home!");
+		bootstrap.addBundle(new AssetsBundle("/landing-page/"));
 		bootstrap.addBundle(
 				GuiceBundle.newBuilder()
-						.addModule( new ApplicationModule() )
-						.enableAutoConfig( getClass().getPackage().getName() )
+						.addModule(new ApplicationModule())
+						.enableAutoConfig(getClass().getPackage().getName())
 						.build()
 		);
 	}
