@@ -22,7 +22,6 @@ public class SubscriberResource  {
 
 	@Inject
 	public SubscriberResource(GenericDAO<Subscriber> dao) {
-
 		this.dao = dao;
 	}
 
@@ -38,7 +37,8 @@ public class SubscriberResource  {
 		String email = subscriber.getEmail();
 		if ( isValidEmailAddress(email) ) {
 			dao.saveOrUpdate(subscriber);
-			return Response.ok().header("Access-Control-Allow-Origin", "*").build();
+//			return Response.ok().header("Access-Control-Allow-Origin", "*").build();
+			return Response.ok().build();
 		}
 		else  {
 			return Response.status(Response.Status.PRECONDITION_FAILED).build();
