@@ -106,7 +106,7 @@
         <morphia-version>0.105</morphia-version>
         <commons-lang.version>2.3</commons-lang.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
-        <newrelic.version>3.0.1</newrelic.version>
+        <newrelic.version>3.4.2</newrelic.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <aws.sdk.version>1.6.1</aws.sdk.version>
         <commons.io.version>1.3.2</commons.io.version>
