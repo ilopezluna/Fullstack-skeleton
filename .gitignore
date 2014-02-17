@@ -2,4 +2,3 @@
 .idea/
 src/main/resources/frontend/bower_components/
 development.yml
-heroku.yml

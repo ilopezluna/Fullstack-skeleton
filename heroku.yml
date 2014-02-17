@@ -1,0 +1,18 @@
+mongo:
+  uri: ds031349.mongolab.com
+  port: 31349
+  database: heroku_app22294048
+  username: heroku_app22294048
+  password: ASuhdjhja/("72873
+
+http:
+  rootPath: /api/*  # Default is /*
+
+mail:
+  username: username@gmail.com
+  password: secret
+
+aws:
+  accessKey: AKIAJ2DJKF5X72RHF5ZQ
+  secretKey: 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
+  imagesBucket: com.ilopezluna.restaurant.images
