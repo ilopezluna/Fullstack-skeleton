@@ -20,7 +20,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		
 		<!-- Rocket extras -->
-		<link href="assets/css/animate.css" rel="stylesheet">
+        <link href="assets/css/animate.css" type="text/css" rel="stylesheet"  media="screen and (min-device-width: 800px)">
 		<link href="assets/css/prettyPhoto.css" rel="stylesheet">
 		<link href="assets/css/style.css" rel="stylesheet">
 		<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -95,7 +95,7 @@
 				<div class="col-md-7">
 					<div class="lp-element animate" data-animate="fadeInDown">
                         <img class="img-responsive" src="assets/images/logo_small.png">
-                        <p class="lead"><b>¿Aún no has probado la comida japonesa?</b></p>
+                        <p class="lead"><b>¿Te gusta la comida japonesa?</b></p>
 					</div>
 				</div>
 			</div>
@@ -127,8 +127,8 @@
                 <div class="col-md-4">
                     <div class="service-block animate" data-animate="flipInY">
                         <span class="glyphicon glyphicon-phone"></span>
-                        <h3>Desde el móbil</h3>
-                        <p>¿Estás en la oficina? ¿Estás volviendo a casa? <br/>¿Tienes un compromiso y quieres quedar bien?<br/>¡Haz tu pedido desde tu móbil!</p>
+                        <h3>Desde el móvil</h3>
+                        <p>¿Estás en la oficina? ¿Estás volviendo a casa? <br/>¿Tienes un compromiso y quieres quedar bien?<br/>¡Haz tu pedido desde tu móvil!</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -158,8 +158,8 @@
 					</div>
 				</div>
 				<div class="col-md-4 col-xs-6">
-					<a href="assets/images/gallery/15.jpg" title="This is the description">
-						<img src="assets/images/gallery/15.jpg" alt="Turtle" class="img-rounded image-responsive animate" data-animate="fadeIn">
+					<a href="assets/images/gallery/16.png" title="This is the description">
+						<img src="assets/images/gallery/16.png" alt="Turtle" class="img-rounded image-responsive animate" data-animate="fadeIn">
 					</a>
 				</div>
 				<div class="col-md-4 col-xs-6">
@@ -168,8 +168,8 @@
                     </a>
 				</div>
 				<div class="col-md-4 col-xs-6">
-                    <a href="assets/images/gallery/3.jpg" title="This is the description">
-                        <img src="assets/images/gallery/3.jpg" alt="Turtle" class="img-rounded image-responsive animate" data-animate="fadeIn">
+                    <a href="assets/images/gallery/18.jpg" title="This is the description">
+                        <img src="assets/images/gallery/18.jpg" alt="Turtle" class="img-rounded image-responsive animate" data-animate="fadeIn">
                     </a>
 				</div>
 				<div class="col-md-4 col-xs-6">
@@ -204,12 +204,13 @@
                         <h1><strong>¿Quieres saber cuándo abrimos?</strong></h1>
                         <p class="lead">Suscríbete y te mantendremos informado!</p>
                     </div>
+                    <img src="assets/images/maki_small.png">
                     <form name="subscribeForm" role="form" class="animate" data-animate="fadeInUp" data-ng-controller="Subscribe">
                         <p>{{message}}</p>
                         <div class="input-group">
                             <input type="email" data-ng-model="subscriber.email" class="form-control input-lg" placeholder="Escribe tu dirección de correo" required>
 			            	<span class="input-group-btn">
-			              		<button class="btn btn-lg btn-default" type="button" data-ng-click="send()">Suscríbeme!</button>
+			              		<button class="btn btn-lg btn-default" type="button" data-ng-click="send()">Suscríbete!</button>
 			            	</span>
                         </div>
                     </form>
@@ -219,53 +220,10 @@
     </section>
     <!-- ==================================================
     End Newsletter Blcok -->
-	
-	<!-- Start Newsletter Block
-	================================================== -->
-	<section id="slider" class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div id="Carousel" class="carousel slide">
-					        <ol class="carousel-indicators">
-					            <li data-target="#Carousel" data-slide-to="0" class="active"></li>
-					            <li data-target="#Carousel" data-slide-to="1"></li>
-					            <li data-target="#Carousel" data-slide-to="2"></li>
-					        </ol>
-					
-					        <div class="carousel-inner">
-					            <div class="item active animate" data-animate="flipInY">
-					                <blockquote>
-					                  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-					                  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-					                </blockquote>					            </div>
-					           <div class="item animate" data-animate="flipInY">
-					             	<blockquote>
-					             	  <p class="lead">Bootstrap has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
-					             	  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-					             	</blockquote>
-					           </div>
-					           <div class="item animate" data-animate="flipInY">
-					           		<blockquote>
-						             	<p class="lead">Bring Bootstrap's components to life with over a dozen custom jQuery plugins. Easily include them all, or one by one.</p>
-						             	<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-					             	</blockquote>
-					            </div>
-					        </div>
-					
-					        <a class="left carousel-control" href="#Carousel" data-slide="prev">
-					            <span class="glyphicon glyphicon-chevron-left"></span>
-					        </a>
-					        <a class="right carousel-control" href="#Carousel" data-slide="next">
-					            <span class="glyphicon glyphicon-chevron-right"></span>
-					        </a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ==================================================
-	End Slider Blcok -->
+
+	<footer>
+        <img src="assets/images/footer_pattern.png" class="img-responsive">
+	</footer>
 	
 	<!-- Bootstrap core JavaScript
 	================================================== -->

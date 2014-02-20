@@ -335,6 +335,10 @@ label {
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,.05);
 }
 
+#footer {
+	background: url('../images/header.jpg') center center no-repeat;
+}
+
 /*	Parallax Background
 	==================================================*/
 @media only screen and (min-width: 640px){
@@ -700,5 +704,13 @@ label {
 
 .custom-color-orange {
 	color: #E35212;
+}
+
+.navbar-fixed-top {
+	background-color: #ffffff;
+}
+
+.no-padding-bottom {
+	padding-bottom: 0px;
 }
 
