@@ -341,7 +341,7 @@ label {
 
 /*	Parallax Background
 	==================================================*/
-@media only screen and (min-width: 640px){
+@media only screen and (min-width: 1000px){
 	#parallax {
 	  height: 680px;
 	  width: 100%;
@@ -353,7 +353,7 @@ label {
 	}
 }
 
-@media only screen and (max-width: 640px){
+@media only screen and (max-width: 1000px){
 	#parallax {
 		height: 680px;
 		width: 100%;
