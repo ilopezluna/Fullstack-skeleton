@@ -3,7 +3,7 @@
 	<head>
 	    <!-- Meta, title, CSS, favicons, etc. -->
 	    <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 		<meta name="description" content="">
 		<meta name="author" content="">
 	
@@ -20,7 +20,14 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		
 		<!-- Rocket extras -->
-        <link href="assets/css/animate.css" type="text/css" rel="stylesheet"  media="only screen and (min-device-width: 800px)">
+        <script type="text/javascript">
+            if (window.screen.width > 640){
+                document.write('<meta name="viewport" content="width=980, user-scalable=yes" />')}
+            if( (!navigator.userAgent.match(/iPhone/i)) && (!navigator.userAgent.match(/iPod/i)) && (!navigator.userAgent.match(/Android/i)) ) {
+                document.write('<link href="assets/css/animate.css" type="text/css" rel="stylesheet"  media="only screen and (min-device-width: 800px)">')
+            }
+        </script>
+
 		<link href="assets/css/prettyPhoto.css" rel="stylesheet">
 		<link href="assets/css/style.css" rel="stylesheet">
 		<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
