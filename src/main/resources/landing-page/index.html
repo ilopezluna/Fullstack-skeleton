@@ -20,12 +20,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		
 		<!-- Rocket extras -->
-        <script type="text/javascript">
-            if( (!navigator.userAgent.match(/iPhone/i)) && (!navigator.userAgent.match(/iPod/i)) && (!navigator.userAgent.match(/Android/i)) ) {
-                document.write('<link href="assets/css/animate.css" type="text/css" rel="stylesheet">')
-            }
-        </script>
-
+        <link href="assets/css/animate.css" type="text/css" rel="stylesheet">
 		<link href="assets/css/prettyPhoto.css" rel="stylesheet">
 		<link href="assets/css/style.css" rel="stylesheet">
 		<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -40,7 +35,7 @@
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">
 		                               <link rel="shortcut icon" href="../docs-assets/ico/favicon.png">
 	</head>
-	<body>
+	<body data-ng-app="landing" data-ng-controller="Subscribe">
 	
 	<!-- Start Rocket -->
 	<!-- ********************* -->
@@ -48,7 +43,9 @@
 	<!-- Parallax Background
 	================================================== -->
 	<!-- image is set in the CSS as a background image -->
-	<div id="parallax"></div>
+    <div data-ng-if="!isDevice()">
+	    <div id="parallax"></div>
+    </div>
 	<!-- End Parallax Background
 	================================================== -->
 	
@@ -90,20 +87,32 @@
 	
 	<!-- Start Hero Section
 	================================================== -->
-	<section id="hero" class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5"></div>
-				<div class="col-md-7">
-					<div class="lp-element animate" data-animate="fadeInDown">
-                        <img class="img-responsive" src="assets/images/logo_big.png">
-                        <p class="lead"><b>¡Cocina y arte a tu alcance!</b></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ================================================== 
+    <div data-ng-if="!isDevice()">
+        <section id="hero" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <div class="lp-element animate" data-animate="fadeInDown">
+                            <img class="img-responsive" src="assets/images/logo_big.png">
+                            <p class="lead"><b>¡Cocina y arte a tu alcance!</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div data-ng-if="isDevice()">
+        <section class="section gallery top-margin">
+            <div class="container">
+                <div class="row">
+                    <img class="img-responsive" src="assets/images/logo_big.png">
+                    <h2>¡Cocina y arte a tu alcance!</h2>
+                </div>
+            </div>
+        </section>
+    </div>
+	<!-- ==================================================
 	End Hero -->
 	
 	<!-- Start Features
@@ -113,7 +122,7 @@
 			<div class="row">
 				<div class="col-md-12 custom-color-orange">
 					<!-- Title -->
-					<div class="overview animate" data-animate="flipInX">
+					<div class="overview" data-ng-class="{animate: !isDevice()}" data-animate="flipInX">
                         <h1>Comida japonesa <strong>a domicilio</strong> </h1>
                         <h2>de tus restaurantes favoritos</h2>
                         <p class="lead">¡Ya no hace falta salir de casa para disfrutar de la cocina japonesa! </p>
@@ -153,7 +162,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 sol-sm-12">
-					<div class="overview animate" data-animate="flipInY">
+					<div class="overview" data-ng-class="{animate: !isDevice()}" data-animate="flipInY">
                         <h1>Comer <strong>sano</strong> es posible con las <br/>mejores recetas japonesas</h1>
                         <!--<p class="lead">Mira nuestros platos y preparate para empezar a disfrutar de la cocina japonesa desde casa </p>-->
                         <p class="lead">Empieza a disfrutar con la gran variedad de cocina japonesa</p>
@@ -199,15 +208,15 @@
     <!-- Start Newsletter Block
     ================================================== -->
     <section id="newsletter" class="section no-padding-bottom">
-        <div class="container" data-ng-app="landing">
+        <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="overview animate" data-animate="fadeInDown">
+                    <div class="overview" data-ng-class="{animate: !isDevice()}" data-animate="fadeInDown">
                         <h1><strong>¿Quieres saber cuándo abrimos?</strong></h1>
                         <p class="lead">Suscríbete y te mantendremos informado!</p>
                     </div>
                     <img src="assets/images/maki_small.png">
-                    <form name="subscribeForm" role="form" class="animate" data-animate="fadeInUp" data-ng-controller="Subscribe">
+                    <form name="subscribeForm" role="form" class="animate" data-animate="fadeInUp">
                         <p>{{message}}</p>
                         <div class="input-group">
                             <input type="email" data-ng-model="subscriber.email" class="form-control input-lg" placeholder="Escribe tu dirección de correo" required>

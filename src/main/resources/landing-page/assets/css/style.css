@@ -341,28 +341,24 @@ label {
 
 /*	Parallax Background
 	==================================================*/
-@media only screen and (min-width: 1000px){
-	#parallax {
-	  height: 680px;
-	  width: 100%;
-	  top: 0;
-	  position: fixed;
-	  background: url('../images/header.jpg') center center no-repeat;
-	  background-size: cover;
-	  z-index: -100;
-	}
+#parallax {
+  height: 680px;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  background: url('../images/header.jpg') center center no-repeat;
+  background-size: cover;
+  z-index: -100;
 }
 
-@media only screen and (max-width: 1000px){
-	#parallax {
-		height: 680px;
-		width: 100%;
-		top: 0;
-		position: fixed;
-		background-size: cover;
-		z-index: -100;
-		background-color: #E35212;
-	}
+#no-parallax {
+	height: 680px;
+	width: 100%;
+	top: 0;
+	position: fixed;
+	background-color: #E35212;
+	background-size: cover;
+	z-index: -100;
 }
 
 /*	Navbar
@@ -706,11 +702,23 @@ label {
 	color: #E35212;
 }
 
+.custom-background-orange {
+	background-color: #E35212 !important;
+}
+
+.custom-background-white {
+	background-color: #ffffff !important;
+}
+
 .navbar-fixed-top {
 	background-color: #ffffff;
 }
 
 .no-padding-bottom {
 	padding-bottom: 0px;
+}
+
+.top-margin {
+	margin-top: 100px;
 }
 
