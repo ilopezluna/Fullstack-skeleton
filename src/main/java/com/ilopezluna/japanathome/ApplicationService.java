@@ -18,7 +18,7 @@ public class ApplicationService extends Service<ApplicationConfiguration>
 	public void initialize(Bootstrap<ApplicationConfiguration> bootstrap)
 	{
 		bootstrap.setName("Japan At home!");
-		bootstrap.addBundle(new AssetsBundle("/landing-page/"));
+		bootstrap.addBundle(new AssetsBundle("/landing-page/","/","index.html"));
 		bootstrap.addBundle(
 				GuiceBundle.newBuilder()
 						.addModule(new ApplicationModule())
