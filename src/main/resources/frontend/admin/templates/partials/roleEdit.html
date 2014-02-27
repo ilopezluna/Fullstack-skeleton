@@ -5,14 +5,14 @@
     </div>
     <div class="panel-body">
 
-        <form role="form">
-            <div class="form-group">
+        <form name="roleForm" role="form" novalidate>
+            <div class="form-group" data-ng-class="{'has-error': roleForm.roleName.$invalid}">
                 <label for="name">Nombre</label>
-                <input data-ng-model='role.name' type="text" class="form-control" id="name" placeholder="Nombre">
+                <input name="roleName" data-ng-model='role.name' type="text" class="form-control" id="name" placeholder="Nombre" required>
             </div>
         </form>
 
-        <button type="button" class="btn btn-primary" data-ng-click='save()'>Guardar</button>
+        <button type="button" class="btn btn-primary" data-ng-click='save()' data-ng-disabled='!canSave()'>Guardar</button>
         <button type="button" class="btn btn-warning" data-ng-click='cancel()'>Cancelar</button>
     </div>
 </div>

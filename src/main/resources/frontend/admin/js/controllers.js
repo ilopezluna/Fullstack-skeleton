@@ -88,6 +88,10 @@ application
         $scope.cancel =  function() {
             $location.path('/roles');
         }
+
+        $scope.canSave = function () {
+            return $scope.roleForm.$dirty && $scope.roleForm.$valid;
+        }
     }])
 
    ;
