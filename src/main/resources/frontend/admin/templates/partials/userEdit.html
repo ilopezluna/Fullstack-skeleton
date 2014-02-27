@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 data-ng-if="!isNew">{{user.name}}</h3>
+        <h3 data-ng-if="isNew">Nuevo usuario</h3>
+    </div>
+    <div class="panel-body">
+
+        <form name="userForm" role="form" novalidate>
+            <div class="form-group" data-ng-class="{'has-error': userForm.userName.$invalid}">
+                <label for="name">Nombre</label>
+                <input name="userName" data-ng-model='user.name' type="text" class="form-control" id="name" placeholder="Nombre" required>
+            </div>
+
+            <div class="form-group" data-ng-class="{'has-error': userForm.password.$invalid}">
+                <label for="password">Contraseña</label>
+                <input name="password" data-ng-model='user.password' type="password" class="form-control" id="password" placeholder="Contraseña" required>
+            </div>
+        </form>
+
+        <button type="button" class="btn btn-primary" data-ng-click='save()' data-ng-disabled='!canSave()'>Guardar</button>
+        <button type="button" class="btn btn-warning" data-ng-click='cancel()'>Cancelar</button>
+        <button type="button" class="btn btn-danger pull-right" data-ng-click='delete()'>Eliminar</button>
+    </div>
+</div>

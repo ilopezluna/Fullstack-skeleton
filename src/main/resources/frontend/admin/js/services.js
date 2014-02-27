@@ -31,6 +31,13 @@ application
             }
         )
     })
+    .factory('User', function($resource) {
+        return $resource(
+            base_url + '/user/:id', {
+                id: '@id'
+            }
+        )
+    })
     .factory('Role', function($resource) {
         return $resource(
             base_url + '/role/:id', {

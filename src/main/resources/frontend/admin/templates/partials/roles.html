@@ -1,19 +1,23 @@
-<button type="button" class="btn btn-primary" data-ng-click='add()'>Nuevo</button>
+<h1>Roles</h1>
 
 <div class="panel panel-default top-buffer">
-    <div class="panel-body">
-        <div class="table-responsive">
-            <table class="table table-striped table-hover table-bordered">
-                <thead>
-                <th>
-                    id
-                </th>
-                <th>
-                    name
-                </th>
-                </thead>
 
-                <tbody>
+    <div class="col-xs-2 top-buffer bottom-buffer">
+        <button type="button" class="btn btn-primary" data-ng-click='add()'>Nuevo</button>
+    </div>
+
+    <div class="panel-body">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nombre
+                </th>
+            </thead>
+
+            <tbody>
                 <tr data-ng-repeat='role in roles' data-ng-click='edit(role)'>
                     <td>
                         {{role.id}}
@@ -21,8 +25,8 @@
                     <td>
                         {{role.name}}
                     </td>
-                </tbody>
-            </table>
-        </div>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

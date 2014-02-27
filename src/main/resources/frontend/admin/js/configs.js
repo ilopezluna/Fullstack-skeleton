@@ -8,10 +8,14 @@ application
         when('/items',          {templateUrl: 'templates/partials/items.html',         controller: 'ItemListCtrl' }).
         when('/items/:id',      {templateUrl: 'templates/partials/itemEdit.html',      controller: 'ItemEditCtrl' }).
         when('/orders',          {templateUrl: 'templates/partials/orders.html',       controller: 'OrderListCtrl' }).
-        when('/users',          {templateUrl: 'templates/partials/users.html',         controller: 'UserListCtrl' }).
-        when('/roles',          {templateUrl: 'templates/partials/roles.html',         controller: 'RoleList' }).
-        when('/roles/add',   {templateUrl: 'templates/partials/roleEdit.html',   controller: 'RoleEdit' }).
-        when('/roles/:id',   {templateUrl: 'templates/partials/roleEdit.html',   controller: 'RoleEdit' }).
+
+        when('/users',      {templateUrl: 'templates/partials/users.html',      controller: 'UserList' }).
+        when('/users/add',  {templateUrl: 'templates/partials/userEdit.html',   controller: 'UserEdit' }).
+        when('/users/:id',  {templateUrl: 'templates/partials/userEdit.html',   controller: 'UserEdit' }).
+
+        when('/roles',      {templateUrl: 'templates/partials/roles.html',      controller: 'RoleList' }).
+        when('/roles/add',  {templateUrl: 'templates/partials/roleEdit.html',   controller: 'RoleEdit' }).
+        when('/roles/:id',  {templateUrl: 'templates/partials/roleEdit.html',   controller: 'RoleEdit' }).
         otherwise({redirectTo: '/'});
     }])
 //    .config(function ($locationProvider) {

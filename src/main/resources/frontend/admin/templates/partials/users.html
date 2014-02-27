@@ -1,4 +1,37 @@
-<div class="panel panel-default">
+<h1>Usuarios</h1>
+
+<div class="panel panel-default top-buffer">
+
+    <div class="col-xs-2 top-buffer bottom-buffer">
+        <button type="button" class="btn btn-primary" data-ng-click='add()'>Nuevo</button>
+    </div>
+
     <div class="panel-body">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Usuario
+                </th>
+                <th>
+                    Rol
+                </th>
+            </thead>
+
+            <tbody>
+            <tr data-ng-repeat='user in users' data-ng-click='edit(user)'>
+                <td>
+                    {{user.id}}
+                </td>
+                <td>
+                    {{user.name}}
+                </td>
+                <td>
+                    {{user.role.name}}
+                </td>
+            </tbody>
+        </table>
     </div>
 </div>

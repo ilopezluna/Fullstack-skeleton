@@ -48,16 +48,64 @@ application
     }])
     .controller('OrderListCtrl', ['$scope', function($scope) {
     }])
-    .controller('UserListCtrl', ['$scope', function($scope) {
+
+    /** USERS **/
+
+    .controller('UserList', ['$scope', '$location', 'User', function($scope, $location, User) {
+        $scope.users = User.query();
+
+        $scope.edit = function (user) {
+            $location.path('/users/' + user.id);
+        }
+
+        $scope.add = function () {
+            $location.path('/users/add');
+        }
+    }])
+    .controller('UserEdit', ['$routeParams', '$scope', 'User', 'Util', function($routeParams, $scope, User, Util) {
+        $scope.path = '/users';
+        $scope.isNew = true;
+
+        if ( $routeParams.id != null ) {
+
+            User.get(
+                { id : $routeParams.id },
+                function(user) {
+                    $scope.user = user;
+                    $scope.isNew = false;
+                });
+        }
+        else  {
+            $scope.user = new User({});
+        }
+
+        $scope.save =  function() {
+            Util.save($scope.user, $scope.path);
+        }
+
+        $scope.cancel =  function() {
+            Util.redirect($scope.path);
+        }
+
+        $scope.canSave = function () {
+            return Util.canSave( $scope.userForm );
+        }
+
+        $scope.delete =  function() {
+            Util.delete($scope.user, $scope.path);
+        }
     }])
 
-    /** ROLE **/
+    /** ROLES **/
 
     .controller('RoleList', ['$scope', '$location', 'Role', function($scope, $location, Role) {
+
         $scope.roles = Role.query();
+
         $scope.edit = function (role) {
             $location.path('/roles/' + role.id);
         }
+
         $scope.add = function () {
             $location.path('/roles/add');
         }
@@ -65,6 +113,7 @@ application
     .controller('RoleEdit', ['$routeParams', '$scope', 'Role', 'Util', function($routeParams, $scope, Role, Util) {
         $scope.path = '/roles';
         $scope.isNew = true;
+
         if ( $routeParams.id != null ) {
 
             Role.get(
@@ -77,6 +126,7 @@ application
         else  {
             $scope.role = new Role({});
         }
+
         $scope.save =  function() {
             Util.save($scope.role, $scope.path);
         }
