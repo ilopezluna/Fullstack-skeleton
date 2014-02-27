@@ -1,0 +1,24 @@
+<button type="button" class="btn btn-primary" data-ng-click='add()'>Add </button>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <th>
+                id
+            </th>
+            <th>
+                name
+            </th>
+        </thead>
+
+        <tbody>
+        <tr data-ng-repeat='role in roles' data-ng-click='edit(role)'>
+            <td>
+                {{role.id}}
+            </td>
+            <td>
+                {{role.name}}
+            </td>
+        </tbody>
+    </table>
+</div>

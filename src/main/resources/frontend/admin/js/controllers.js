@@ -1,5 +1,9 @@
 application
-    .controller('AdminCtrl', ['$scope', '$location', function ($scope, $location) {
+    .controller('Admin', ['$scope', '$location', function ($scope, $location) {
+
+        $scope.login = function () {
+            $location.path('/roles');
+        }
 
         $scope.logged = function ()
         {
@@ -12,12 +16,7 @@ application
 
         }
     }])
-    .controller('DefaultCtrl', ['$scope', '$location', function ($scope, $location) {
 
-        $scope.login = function () {
-            $location.path('/elements');
-        }
-    }])
     .controller('ElementListCtrl', ['$scope', 'Element', '$location', function($scope, Element, $location) {
         $scope.elements = Element.query();
         $scope.edit = function (element) {
@@ -50,5 +49,7 @@ application
     .controller('OrderListCtrl', ['$scope', function($scope) {
     }])
     .controller('UserListCtrl', ['$scope', function($scope) {
+    }])
+    .controller('RoleList', ['$scope', function($scope) {
     }])
    ;

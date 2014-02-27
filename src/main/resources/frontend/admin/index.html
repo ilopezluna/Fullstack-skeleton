@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>Administration</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
@@ -26,12 +21,23 @@
 <body data-ng-app='private'>
 
 <!-- Content -->
-<div data-ng-controller='AdminCtrl' class="container">
-    <a data-ng-if='logged()' data-ng-href='#/elements'>Elements</a>
-    <a data-ng-if='logged()' data-ng-href='#/items'>Items</a>
-    <a data-ng-if='logged()' data-ng-href='#/orders'>Orders</a>
-    <a data-ng-if='logged()' data-ng-href='#/users'>Users</a><br/>
-    <div data-ng-view ></div>
+<div data-ng-controller='Admin' class="container">
+    <div class="row" data-ng-if='logged()'>
+        <a data-ng-href='#/elements'>Restaurants </a>
+        |
+        <a data-ng-href='#/items'>Items </a>
+        |
+        <a data-ng-href='#/orders'>Orders </a>
+        |
+        <a data-ng-href='#/users'>Users </a>
+        |
+        <a data-ng-href='#/roles'>Roles</a><br/>
+    </div>
+
+    <div class="row">
+        <div data-ng-view></div>
+    </div>
+
 </div>
 
 <!-- Bootstrap core JavaScript
