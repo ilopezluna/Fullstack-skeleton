@@ -62,7 +62,8 @@ application
             $location.path('/roles/add');
         }
     }])
-    .controller('RoleEdit', ['$routeParams', '$scope', '$location', 'Role', 'Util', function($routeParams, $scope, $location, Role, Util) {
+    .controller('RoleEdit', ['$routeParams', '$scope', 'Role', 'Util', function($routeParams, $scope, Role, Util) {
+        $scope.path = '/roles';
         $scope.isNew = true;
         if ( $routeParams.id != null ) {
 
@@ -77,15 +78,19 @@ application
             $scope.role = new Role({});
         }
         $scope.save =  function() {
-            Util.save($scope.role, '/roles');
+            Util.save($scope.role, $scope.path);
         }
 
         $scope.cancel =  function() {
-            $location.path('/roles');
+            Util.redirect($scope.path);
         }
 
         $scope.canSave = function () {
             return Util.canSave( $scope.roleForm );
+        }
+
+        $scope.delete =  function() {
+            Util.delete($scope.role, $scope.path);
         }
     }])
 

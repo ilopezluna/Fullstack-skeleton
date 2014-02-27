@@ -11,20 +11,30 @@ application
                         $location.path(path);
                     }
                 );
+            },
+            delete: function(element, path) {
+                element.$delete(
+                    function () {
+                        $location.path(path);
+                    }
+                );
+            },
+            redirect : function(path) {
+                $location.path(path);
             }
         }
     })
     .factory('Restaurant', function($resource) {
         return $resource(
             base_url + '/restaurant/:id', {
-                id: '@Id'
+                id: '@id'
             }
         )
     })
     .factory('Role', function($resource) {
         return $resource(
             base_url + '/role/:id', {
-                id: '@Id'
+                id: '@id'
             }
         )
     })
