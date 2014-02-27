@@ -7,7 +7,7 @@ import com.google.inject.name.Named;
 import com.ilopezluna.japanathome.authenticators.BasicAuthenticator;
 import com.ilopezluna.japanathome.configurations.ApplicationConfiguration;
 import com.ilopezluna.japanathome.configurations.MongoConfiguration;
-import com.ilopezluna.japanathome.entities.Element;
+import com.ilopezluna.japanathome.entities.Restaurant;
 import com.ilopezluna.japanathome.entities.Subscriber;
 import com.ilopezluna.japanathome.entities.User;
 import com.ilopezluna.japanathome.services.GenericDAO;
@@ -69,8 +69,8 @@ public class ApplicationModule extends AbstractModule
 
 	@Provides
 	@Singleton
-	public GenericDAO<Element> ElementDAO(Jongo jongo) {
-		return new GenericDAO<Element>( jongo, Element.class, Element.COLLECTION_NAME );
+	public GenericDAO<Restaurant> ElementDAO(Jongo jongo) {
+		return new GenericDAO<Restaurant>( jongo, Restaurant.class, Restaurant.COLLECTION_NAME );
 	}
 
 	@Provides

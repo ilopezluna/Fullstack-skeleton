@@ -2,7 +2,7 @@ package com.ilopezluna.japanathome.resources;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.ilopezluna.japanathome.entities.Element;
+import com.ilopezluna.japanathome.entities.Restaurant;
 import com.ilopezluna.japanathome.services.GenericDAO;
 
 import javax.ws.rs.Path;
@@ -14,11 +14,11 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 @Singleton
 @Path( ELEMENT_URI )
 @Produces( APPLICATION_JSON )
-public class ElementResource extends AbstractResource<Element>
+public class RestaurantResource extends AbstractResource<Restaurant>
 {
 
 	@Inject
-	public ElementResource(GenericDAO<Element> dao) {
+	public RestaurantResource(GenericDAO<Restaurant> dao) {
 		super(dao);
 	}
 }

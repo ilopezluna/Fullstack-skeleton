@@ -3,9 +3,9 @@ package com.ilopezluna.japanathome.entities;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Element extends Basic
+public class Restaurant extends Basic
 {
-	public static final String COLLECTION_NAME = "elements";
+	public static final String COLLECTION_NAME = "restaurants";
 
 	private int rank;
 	private double price;
