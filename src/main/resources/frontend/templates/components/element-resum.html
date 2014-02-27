@@ -1,0 +1,21 @@
+<div class="col-lg-6">
+    <a data-ng-href='#/element/{{element.id}}'>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-lg-6">
+                    <img class="img-responsive" data-ng-src='{{element.image.path}}' alt="{{element.name}}">
+
+                    <div sushi-rate></div>
+                </div>
+                <div class="col-lg-6">
+                    <h1>{{element.name}}</h1>
+                    <h1 class="custom-color-green">{{element.price}}€</h1>
+                </div>
+            </div>
+            <div class="panel-footer">
+                    Votos: <b>{{element.votes}}</b>
+                    Pedido: <b>{{element.demanded}}</b>
+            </div>
+        </div>
+    </a>
+</div>

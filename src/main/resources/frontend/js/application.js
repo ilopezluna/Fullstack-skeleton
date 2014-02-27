@@ -1,0 +1,1 @@
+var application = angular.module('public', ['ngRoute', 'ui.bootstrap']);

@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-xs-6">
+        <h3>
+            <a data-ng-href="#/" class="custom-color-orange">Volver a la búsqueda</a>
+        </h3>
+    </div>
+    <div class="col-xs-6">
+        <img data-ng-src='assets/logo.png' width="158" height="78" class="pull-right"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="panel panel-default custom-background-color-yellow">
+        <div class="panel-body">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="col-xs-offset-1 col-xs-11">
+                        <h3>{{element.name}}</h3>
+                        <hr/>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="pull-left">
+                                <img class="media-object" data-ng-src='{{element.image.path}}' alt="{{element.name}}">
+                            </div>
+
+                            <div class="media-body text-center">
+                                Votos: <b>{{element.votes}}</b>   <br/>
+                                Pedido: <b>{{element.demanded}}</b>
+                                <div sushi-rate></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default" data-ng-if='order.items.length > 0'>
+                    <div class="panel-body custom-color-black cart-font">
+                        <!-- Cart -->
+                        <div data-ng-controller='CartCtrl'>
+                            <div data-ng-include='cart.url'></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body custom-color-black">
+
+                        <div class="row" data-ng-repeat='category in categories' id='{{category.id}}'>
+
+                            <div class="col-xs-offset-1">
+                                <h2><b>{{category.name}}</b></h2>
+                            </div>
+
+                            <div class="row" data-ng-repeat='item in items' data-ng-if='item.category.id == category.id'>
+
+                                <div class="col-xs-offset-1 col-xs-4" >
+                                    <h4>{{item.name}}</h4>
+                                </div>
+                                <div class="col-xs-5 col-xs-offset-1 text-right custom-color-green">
+                                    <h3>{{item.price}}€ <img data-ng-src='assets/add.png' data-ng-click='addItem($index)'/></h3>
+                                </div>
+
+                            </div>
+
+                            <hr/>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
