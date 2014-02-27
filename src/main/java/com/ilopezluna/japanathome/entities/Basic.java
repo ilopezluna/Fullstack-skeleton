@@ -3,10 +3,13 @@ package com.ilopezluna.japanathome.entities;
 import org.apache.commons.lang.StringUtils;
 import org.bson.types.ObjectId;
 
+import javax.validation.constraints.NotNull;
+
 public class Basic
 {
 	private ObjectId _id;
 
+	@NotNull
 	private String name;
 
 	public String getId()

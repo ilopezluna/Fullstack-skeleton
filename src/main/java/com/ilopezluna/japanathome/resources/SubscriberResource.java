@@ -3,6 +3,7 @@ package com.ilopezluna.japanathome.resources;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.ilopezluna.japanathome.entities.Subscriber;
+import com.ilopezluna.japanathome.exceptions.ValidationException;
 import com.ilopezluna.japanathome.services.GenericDAO;
 
 import javax.ws.rs.*;
@@ -36,9 +37,16 @@ public class SubscriberResource  {
 	public Response save(Subscriber subscriber) {
 		String email = subscriber.getEmail();
 		if ( isValidEmailAddress(email) ) {
-			dao.saveOrUpdate(subscriber);
-//			return Response.ok().header("Access-Control-Allow-Origin", "*").build();
-			return Response.ok().build();
+			try
+			{
+				dao.saveOrUpdate(subscriber);
+				return Response.ok().build();
+			}
+			catch (ValidationException e)
+			{
+				throw new RuntimeException( e.getMessage() );
+			}
+
 		}
 		else  {
 			return Response.status(Response.Status.PRECONDITION_FAILED).build();

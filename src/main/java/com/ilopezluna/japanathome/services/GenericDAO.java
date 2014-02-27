@@ -2,6 +2,7 @@ package com.ilopezluna.japanathome.services;
 
 import com.google.inject.Inject;
 import com.ilopezluna.japanathome.entities.Basic;
+import com.ilopezluna.japanathome.exceptions.ValidationException;
 import org.bson.types.ObjectId;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
@@ -15,9 +16,12 @@ public class GenericDAO <T extends Basic> {
 
 	private final MongoCollection collection;
 
+	private final ValidatorService<T> validatorService;
+
 	@Inject
-	public GenericDAO (Jongo jongo, Class<T> clazz, String collection) {
+	public GenericDAO(Jongo jongo, Class<T> clazz, String collection, ValidatorService<T> validatorService) {
 		this.clazz = clazz;
+		this.validatorService = validatorService;
 		this.collection = jongo.getCollection(collection);
 	}
 
@@ -31,7 +35,9 @@ public class GenericDAO <T extends Basic> {
 		return result;
 	}
 
-	public T saveOrUpdate( T basic ) {
+	public T saveOrUpdate( T basic ) throws ValidationException {
+
+		validatorService.validate(basic);
 		collection.save( basic );
 		return basic;
 	}

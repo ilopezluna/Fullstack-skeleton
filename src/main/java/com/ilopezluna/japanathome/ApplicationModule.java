@@ -11,9 +11,7 @@ import com.ilopezluna.japanathome.entities.Restaurant;
 import com.ilopezluna.japanathome.entities.Role;
 import com.ilopezluna.japanathome.entities.Subscriber;
 import com.ilopezluna.japanathome.entities.User;
-import com.ilopezluna.japanathome.services.GenericDAO;
-import com.ilopezluna.japanathome.services.UserService;
-import com.ilopezluna.japanathome.services.UserServiceImpl;
+import com.ilopezluna.japanathome.services.*;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.yammer.dropwizard.auth.basic.BasicAuthProvider;
@@ -24,6 +22,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import java.net.UnknownHostException;
 import java.util.Properties;
 
@@ -42,6 +43,21 @@ public class ApplicationModule extends AbstractModule
 	public ApplicationConfiguration configuration()
 	{
 		return new ApplicationConfiguration();
+	}
+
+	@Provides
+	@Singleton
+	public Validator validator()
+	{
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+		return validatorFactory.getValidator();
+	}
+
+	@Provides
+	@Singleton
+	public ValidatorService validatorService(Validator validator)
+	{
+		return new ValidatorServiceImpl(validator);
 	}
 
 	@Provides
@@ -70,26 +86,26 @@ public class ApplicationModule extends AbstractModule
 
 	@Provides
 	@Singleton
-	public GenericDAO<Restaurant> RestaurantDAO(Jongo jongo) {
-		return new GenericDAO<Restaurant>( jongo, Restaurant.class, Restaurant.COLLECTION_NAME );
+	public GenericDAO<Restaurant> RestaurantDAO(Jongo jongo, ValidatorService validatorService) {
+		return new GenericDAO<Restaurant>( jongo, Restaurant.class, Restaurant.COLLECTION_NAME, validatorService);
 	}
 
 	@Provides
 	@Singleton
-	public GenericDAO<Role> RoleDAO(Jongo jongo) {
-		return new GenericDAO<Role>( jongo, Role.class, Role.COLLECTION_NAME );
+	public GenericDAO<Role> RoleDAO(Jongo jongo, ValidatorService validatorService) {
+		return new GenericDAO<Role>( jongo, Role.class, Role.COLLECTION_NAME, validatorService);
 	}
 
 	@Provides
 	@Singleton
-	public GenericDAO<Subscriber> SubscriberDAO(Jongo jongo) {
-		return new GenericDAO<Subscriber>( jongo, Subscriber.class, Subscriber.COLLECTION_NAME );
+	public GenericDAO<Subscriber> SubscriberDAO(Jongo jongo, ValidatorService validatorService) {
+		return new GenericDAO<Subscriber>( jongo, Subscriber.class, Subscriber.COLLECTION_NAME, validatorService);
 	}
 
 	@Provides
 	@Singleton
-	public GenericDAO<User> UserDAO(Jongo jongo) {
-		return new GenericDAO<User>( jongo, User.class, User.COLLECTION_NAME );
+	public GenericDAO<User> UserDAO(Jongo jongo, ValidatorService validatorService) {
+		return new GenericDAO<User>( jongo, User.class, User.COLLECTION_NAME, validatorService);
 	}
 
 

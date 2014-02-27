@@ -1,6 +1,7 @@
 package com.ilopezluna.japanathome.resources;
 
 import com.ilopezluna.japanathome.entities.Basic;
+import com.ilopezluna.japanathome.exceptions.ValidationException;
 import com.ilopezluna.japanathome.services.GenericDAO;
 
 import javax.ws.rs.*;
@@ -37,7 +38,14 @@ public abstract class AbstractResource  <T extends Basic> {
 	@Consumes( MediaType.APPLICATION_JSON )
 	public T save( T basic )
 	{
-		return dao.saveOrUpdate(basic);
+		try
+		{
+			return dao.saveOrUpdate(basic);
+		}
+		catch (ValidationException e)
+		{
+			throw new RuntimeException( e.getMessage() );
+		}
 	}
 
 	@POST
@@ -45,7 +53,14 @@ public abstract class AbstractResource  <T extends Basic> {
 	@Consumes( MediaType.APPLICATION_JSON )
 	public T update( @PathParam(PATH_ID_PARAM) String id, T basic )
 	{
-		return dao.saveOrUpdate( basic );
+		try
+		{
+			return dao.saveOrUpdate(basic);
+		}
+		catch (ValidationException e)
+		{
+			throw new RuntimeException( e.getMessage() );
+		}
 	}
 
 	@DELETE
