@@ -15,6 +15,13 @@
                 <label for="password">Contraseña</label>
                 <input name="password" data-ng-model='user.password' type="password" class="form-control" id="password" placeholder="Contraseña" required>
             </div>
+
+            <div class="form-group">
+                <label for="role">Rol</label>
+                <select id="role" class="form-control" data-ng-options="role.name for role in roles" data-ng-model="user.role">
+
+                </select>
+            </div>
         </form>
 
         <button type="button" class="btn btn-primary" data-ng-click='save()' data-ng-disabled='!canSave()'>Guardar</button>

@@ -62,22 +62,33 @@ application
             $location.path('/users/add');
         }
     }])
-    .controller('UserEdit', ['$routeParams', '$scope', 'User', 'Util', function($routeParams, $scope, User, Util) {
+    .controller('UserEdit', ['$routeParams', '$scope', 'User', 'Role', 'Util', '$log', function($routeParams, $scope, User, Role, Util, $log) {
         $scope.path = '/users';
         $scope.isNew = true;
+        Role.query(function(roles) {
+            $scope.roles = roles;
+            if ( $routeParams.id != null ) {
 
-        if ( $routeParams.id != null ) {
+                User.get(
+                    { id : $routeParams.id },
+                    function(user) {
+                        $scope.user = user;
 
-            User.get(
-                { id : $routeParams.id },
-                function(user) {
-                    $scope.user = user;
-                    $scope.isNew = false;
-                });
-        }
-        else  {
-            $scope.user = new User({});
-        }
+                        // Note: ngModel compares by reference, not value. So role from user an roles of Roles resource are different, and I must re-assign.
+                        angular.forEach(roles, function (role) {
+                            if ($scope.user.role.id === role.id)
+                            {
+                                $scope.user.role = role;
+                            }
+
+                        });
+                        $scope.isNew = false;
+                    });
+            }
+            else  {
+                $scope.user = new User({});
+            }
+        });
 
         $scope.save =  function() {
             Util.save($scope.user, $scope.path);
