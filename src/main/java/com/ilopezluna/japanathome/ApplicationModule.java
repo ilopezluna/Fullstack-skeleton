@@ -8,6 +8,7 @@ import com.ilopezluna.japanathome.authenticators.BasicAuthenticator;
 import com.ilopezluna.japanathome.configurations.ApplicationConfiguration;
 import com.ilopezluna.japanathome.configurations.MongoConfiguration;
 import com.ilopezluna.japanathome.entities.Restaurant;
+import com.ilopezluna.japanathome.entities.Role;
 import com.ilopezluna.japanathome.entities.Subscriber;
 import com.ilopezluna.japanathome.entities.User;
 import com.ilopezluna.japanathome.services.GenericDAO;
@@ -69,8 +70,14 @@ public class ApplicationModule extends AbstractModule
 
 	@Provides
 	@Singleton
-	public GenericDAO<Restaurant> ElementDAO(Jongo jongo) {
+	public GenericDAO<Restaurant> RestaurantDAO(Jongo jongo) {
 		return new GenericDAO<Restaurant>( jongo, Restaurant.class, Restaurant.COLLECTION_NAME );
+	}
+
+	@Provides
+	@Singleton
+	public GenericDAO<Role> RoleDAO(Jongo jongo) {
+		return new GenericDAO<Role>( jongo, Role.class, Role.COLLECTION_NAME );
 	}
 
 	@Provides
