@@ -1,1 +1,1 @@
-var application = angular.module('private', ['ngRoute', 'ngResource','ui.bootstrap', 'public']);
+var application = angular.module('private', ['ngRoute', 'ngResource','ui.bootstrap']);

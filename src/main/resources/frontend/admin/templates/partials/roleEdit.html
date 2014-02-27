@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 data-ng-if="!isNew">{{role.name}}</h3>
+        <h3 data-ng-if="isNew">Nuevo rol</h3>
+    </div>
+    <div class="panel-body">
+
+        <form role="form">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input data-ng-model='role.name' type="text" class="form-control" id="name" placeholder="Nombre">
+            </div>
+        </form>
+
+        <button type="button" class="btn btn-primary" data-ng-click='save()'>Guardar</button>
+        <button type="button" class="btn btn-warning" data-ng-click='cancel()'>Cancelar</button>
+    </div>
+</div>

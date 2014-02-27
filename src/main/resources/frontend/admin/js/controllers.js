@@ -50,6 +50,44 @@ application
     }])
     .controller('UserListCtrl', ['$scope', function($scope) {
     }])
-    .controller('RoleList', ['$scope', function($scope) {
+
+    /** ROLE **/
+
+    .controller('RoleList', ['$scope', '$location', 'Role', function($scope, $location, Role) {
+        $scope.roles = Role.query();
+        $scope.edit = function (role) {
+            $location.path('/roles/' + role.id);
+        }
+        $scope.add = function () {
+            $location.path('/roles/add');
+        }
     }])
+    .controller('RoleEdit', ['$routeParams', '$scope', '$location', 'Role', function($routeParams, $scope, $location, Role) {
+        $scope.isNew = true;
+        if ( $routeParams.id != null ) {
+
+            Role.get(
+                 { id : $routeParams.id },
+                 function(role) {
+                     $scope.role = role;
+                     $scope.isNew = false;
+            });
+        }
+        else  {
+            $scope.role = new Role({});
+        }
+        $scope.save =  function() {
+
+            $scope.role.$save(
+                function () {
+                    $location.path('/roles');
+                }
+            );
+        }
+
+        $scope.cancel =  function() {
+            $location.path('/roles');
+        }
+    }])
+
    ;
