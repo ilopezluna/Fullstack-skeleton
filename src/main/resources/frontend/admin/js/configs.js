@@ -9,6 +9,8 @@ application
         when('/items/:id',      {templateUrl: 'templates/partials/itemEdit.html',      controller: 'ItemEditCtrl' }).
         when('/orders',          {templateUrl: 'templates/partials/orders.html',       controller: 'OrderListCtrl' }).
 
+        when('/login',      {templateUrl: 'templates/partials/login.html',      controller: 'Login' }).
+
         when('/users',      {templateUrl: 'templates/partials/users.html',      controller: 'UserList' }).
         when('/users/add',  {templateUrl: 'templates/partials/userEdit.html',   controller: 'UserEdit' }).
         when('/users/:id',  {templateUrl: 'templates/partials/userEdit.html',   controller: 'UserEdit' }).

@@ -1,5 +1,16 @@
 var base_url = 'http://localhost:8080/api/v1';
 application
+    .factory('Auth', function($log) {
+        return {
+            isLogged : function() {
+                return false;
+            },
+            login: function(username, password) {
+                $log.log('Username: ' + username);
+                $log.log('Password: ' + password);
+            }
+        }
+    })
     .factory('Util', function($location) {
         return {
             canSave : function(form) {

@@ -1,4 +1,9 @@
 application
+    .controller('Login', ['$scope', 'Auth', function ($scope, Auth) {
+        $scope.login = function () {
+            Auth.login($scope.username, $scope.password);
+        }
+    }])
     .controller('Admin', ['$scope', '$location', function ($scope, $location) {
 
         $scope.login = function () {
