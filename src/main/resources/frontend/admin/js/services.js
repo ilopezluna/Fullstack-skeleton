@@ -1,24 +1,37 @@
 var base_url = 'http://localhost:8080/api/v1';
 application
-    .factory('Auth', ['Base64', '$http', '$log', function (Base64, $http, $log) {
+    .factory('Auth', ['Base64', '$http', '$location', function (Base64, $http, $location) {
+
+        var authenticated = false;
+        var user = {};
+
         return {
             isLogged : function() {
-                return false;
+                return authenticated;
             },
-            login: function(username, password) {
+            logout : function()
+            {
+                authenticated = false;
+                user = {}
+            },
+            login: function(username, password, path) {
 
-                $log.log('Username: ' + username);
-                $log.log('Password: ' + password);
                 var encoded = Base64.encode(username + ':' + password);
                 $http.defaults.headers.common['Authorization'] = 'Basic ' + encoded;
 
                 $http.post(base_url + '/login')
                     .success(
-                        function () { $log.log('Logged!') })
+                        function () {
+                            authenticated = true;
+                            user = { 'username' : username, 'password' : password };
+                            $location.path(path);
+                        })
                     .error(
-                        function () { $log.log('Not Logged!') }
+                        function () {
+                            authenticated = false;
+                            user = {}
+                        }
                     );
-
             }
         }
     }])

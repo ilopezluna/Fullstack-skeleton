@@ -1,21 +1,15 @@
 application
+    .controller('Admin', ['$scope', 'Auth', function ($scope, Auth) {
+        $scope.isLogged = function ()
+        {
+            return Auth.isLogged();
+        }
+    }])
     .controller('Login', ['$scope', 'Auth', function ($scope, Auth) {
         $scope.login = function () {
-            Auth.login($scope.username, $scope.password);
+            Auth.login($scope.username, $scope.password, '/roles');
         }
     }])
-    .controller('Admin', ['$scope', '$location', function ($scope, $location) {
-
-        $scope.login = function () {
-            $location.path('/roles');
-        }
-
-        $scope.logged = function ()
-        {
-            return $location.path() != '/';
-        }
-    }])
-
     .controller('ElementListCtrl', ['$scope', 'Element', '$location', function($scope, Element, $location) {
         $scope.elements = Element.query();
         $scope.edit = function (element) {
