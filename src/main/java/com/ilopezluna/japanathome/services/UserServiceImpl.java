@@ -16,13 +16,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getFromCredentials(BasicCredentials credentials) {
-		User user  = collection.findOne("{username: '" + credentials.getUsername() + "'}").as(User.class);
-		if (user.getPassword().equals(credentials.getPassword()))
-		{
-			return user;
-		}
-		return null;
+	public User getFromCredentials(BasicCredentials credentials)
+	{
+		return collection.findOne("" +
+				"{name: '" + credentials.getUsername() + "'}, " +
+				"{password: '" + credentials.getPassword() + "'}")
+				.as(User.class);
 	}
 
 	@Override

@@ -1,8 +1,10 @@
 package com.ilopezluna.japanathome.resources;
 
 import com.ilopezluna.japanathome.entities.Basic;
+import com.ilopezluna.japanathome.entities.User;
 import com.ilopezluna.japanathome.exceptions.ValidationException;
 import com.ilopezluna.japanathome.services.GenericDAO;
+import com.yammer.dropwizard.auth.Auth;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -65,7 +67,7 @@ public abstract class AbstractResource  <T extends Basic> {
 
 	@DELETE
 	@Path( PATH_ID )
-	public Response delete(@PathParam(PATH_ID_PARAM) String id)
+	public Response delete(@Auth User user, @PathParam(PATH_ID_PARAM) String id)
 	{
 		dao.remove( id );
 		return Response.ok().build();

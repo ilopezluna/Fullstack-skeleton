@@ -7,13 +7,7 @@ application
 
         $scope.logged = function ()
         {
-            if ( $location.path() === '/' ) {
-                return false;
-            }
-            else {
-                return true;
-            }
-
+            return $location.path() != '/';
         }
     }])
 

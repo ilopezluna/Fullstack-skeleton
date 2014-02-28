@@ -4,7 +4,6 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
-import com.ilopezluna.japanathome.authenticators.BasicAuthenticator;
 import com.ilopezluna.japanathome.configurations.ApplicationConfiguration;
 import com.ilopezluna.japanathome.configurations.MongoConfiguration;
 import com.ilopezluna.japanathome.entities.Restaurant;
@@ -14,7 +13,6 @@ import com.ilopezluna.japanathome.entities.User;
 import com.ilopezluna.japanathome.services.*;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
-import com.yammer.dropwizard.auth.basic.BasicAuthProvider;
 import com.yammer.dropwizard.config.Configuration;
 import org.jongo.Jongo;
 import org.slf4j.Logger;
@@ -119,13 +117,6 @@ public class ApplicationModule extends AbstractModule
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.port", "587");
 		return props;
-	}
-
-	@Provides
-	@Singleton
-	public BasicAuthProvider<User> basicAuthProvider(UserService userService)
-	{
-		return new BasicAuthProvider<User>(new BasicAuthenticator(userService),"realm");
 	}
 
 	@Provides

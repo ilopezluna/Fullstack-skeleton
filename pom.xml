@@ -99,7 +99,7 @@
 
         <!-- Versions of dependencies -->
         <dropwizard.core.version>0.6.2</dropwizard.core.version>
-        <dropwizard.guice.version>0.6.1</dropwizard.guice.version>
+        <dropwizard.guice.version>0.6.2</dropwizard.guice.version>
         <mongo.java.driver.version>2.11.1</mongo.java.driver.version>
         <dropwizard.test.version>0.6.2</dropwizard.test.version>
         <dropwizard.auth.version>0.6.2</dropwizard.auth.version>

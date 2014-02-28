@@ -21,12 +21,7 @@ public class BasicAuthenticator implements Authenticator<BasicCredentials, User>
 	public Optional<User> authenticate(BasicCredentials credentials) throws AuthenticationException
 	{
 		User user = userService.getFromCredentials(credentials);
-		//TODO If exists an user with username and password...
-		if (user != null && userService.isAdmin(user))
-		{
-			return Optional.of(user);
-		}
-		return Optional.absent();
+		return ( user != null ) ? Optional.of(user) : Optional.<User>absent();
 	}
 
 
