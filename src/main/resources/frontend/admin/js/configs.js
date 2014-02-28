@@ -1,7 +1,6 @@
 application
     .config(['$routeProvider', function($routeProvider) {
     $routeProvider.
-        when('/',               {templateUrl: 'templates/partials/login.html',          controller: 'Admin' }).
         when('/elements',       {templateUrl: 'templates/partials/elements.html',      controller: 'ElementListCtrl' }).
         when('/elements/add',   {templateUrl: 'templates/partials/elementEdit.html',   controller: 'ElementEditCtrl' }).
         when('/elements/:id',   {templateUrl: 'templates/partials/elementEdit.html',   controller: 'ElementEditCtrl' }).
@@ -18,5 +17,5 @@ application
         when('/roles',      {templateUrl: 'templates/partials/roles.html',      controller: 'RoleList' }).
         when('/roles/add',  {templateUrl: 'templates/partials/roleEdit.html',   controller: 'RoleEdit' }).
         when('/roles/:id',  {templateUrl: 'templates/partials/roleEdit.html',   controller: 'RoleEdit' }).
-        otherwise({redirectTo: '/'});
+        otherwise({redirectTo: '/login'});
     }]);

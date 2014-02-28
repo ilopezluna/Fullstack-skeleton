@@ -4,6 +4,14 @@ application
         {
             return Auth.isLogged();
         }
+
+        $scope.getUserName = function () {
+            return Auth.getUser().username;
+        }
+
+        $scope.logout = function () {
+            Auth.logout();
+        }
     }])
     .controller('Login', ['$scope', 'Auth', function ($scope, Auth) {
         $scope.login = function () {

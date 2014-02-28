@@ -6,6 +6,9 @@ application
         var user = {};
 
         return {
+            getUser : function() {
+                return user;
+            },
             isLogged : function() {
                 return authenticated;
             },
@@ -13,6 +16,7 @@ application
             {
                 authenticated = false;
                 user = {}
+                $location.path('/login');
             },
             login: function(username, password, path) {
 
