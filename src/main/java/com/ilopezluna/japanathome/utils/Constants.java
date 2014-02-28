@@ -14,4 +14,6 @@ public class Constants {
 
 	public static final String ELEMENT_URI = "/v1/element";
 
+	public static final String LOGIN_URI = "/v1/login";
+
 }

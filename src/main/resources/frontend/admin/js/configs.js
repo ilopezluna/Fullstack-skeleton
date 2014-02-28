@@ -19,8 +19,4 @@ application
         when('/roles/add',  {templateUrl: 'templates/partials/roleEdit.html',   controller: 'RoleEdit' }).
         when('/roles/:id',  {templateUrl: 'templates/partials/roleEdit.html',   controller: 'RoleEdit' }).
         otherwise({redirectTo: '/'});
-    }])
-//    .config(function ($locationProvider) {
-//        $locationProvider.html5Mode(true);
-//    })
-;
+    }]);
