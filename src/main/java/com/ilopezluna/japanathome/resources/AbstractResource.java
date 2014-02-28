@@ -25,20 +25,20 @@ public abstract class AbstractResource  <T extends Basic> {
 
 	@GET
 	@Path( PATH_ID )
-	public T fetch( @PathParam( PATH_ID_PARAM) String id )
+	public T fetch( @Auth User user, @PathParam( PATH_ID_PARAM) String id )
 	{
 		return dao.fetch( id );
 	}
 
 	@GET
-	public Collection<T> fetchAll()
+	public Collection<T> fetchAll(@Auth User user)
 	{
 		return dao.fetchAll();
 	}
 
 	@POST
 	@Consumes( MediaType.APPLICATION_JSON )
-	public T save( T basic )
+	public T save( @Auth User user, T basic )
 	{
 		try
 		{
@@ -53,7 +53,7 @@ public abstract class AbstractResource  <T extends Basic> {
 	@POST
 	@Path( PATH_ID )
 	@Consumes( MediaType.APPLICATION_JSON )
-	public T update( @PathParam(PATH_ID_PARAM) String id, T basic )
+	public T update( @Auth User user, @PathParam(PATH_ID_PARAM) String id, T basic )
 	{
 		try
 		{
@@ -67,7 +67,7 @@ public abstract class AbstractResource  <T extends Basic> {
 
 	@DELETE
 	@Path( PATH_ID )
-	public Response delete(@Auth User user, @PathParam(PATH_ID_PARAM) String id)
+	public Response delete( @Auth User user, @PathParam(PATH_ID_PARAM) String id )
 	{
 		dao.remove( id );
 		return Response.ok().build();
